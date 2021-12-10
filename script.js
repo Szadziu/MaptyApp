@@ -15,7 +15,20 @@ if (navigator.geolocation)
   navigator.geolocation.getCurrentPosition(
     function (position) {
       const { latitude, longitude } = position.coords;
+      const coords = [latitude, longitude];
       console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+      const map = L.map('map').setView(coords, 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      map.on('click', function (mapEvent) {
+        console.log(mapEvent);
+        const { lat, lng } = mapEvent.latlng;
+        L.marker([lat, lng]).addTo(map).bindPopup('Workout').openPopup();
+      });
     },
     function () {
       alert('Could not get your position');

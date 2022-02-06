@@ -32,6 +32,7 @@ body {
   padding: 2.5rem;
 
   display: flex;
+  flex-direction: column;
 }
 
 /* GENERAL */
@@ -42,24 +43,27 @@ a:visited {
 
 /* SIDEBAR */
 .sidebar {
-  flex-basis: 50rem;
+  height: 50%;
+  width: 100%;
   background-color: var(--color-dark--1);
-  padding: 3rem 5rem 4rem 5rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
 }
 
 .logo {
-  height: 5.2rem;
-  align-self: center;
-  margin-bottom: 4rem;
+  height: 1.6rem;
+  align-self: flex-start;
+  margin-bottom: 1rem;
 }
 
 .workouts {
   list-style: none;
-  height: 77vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .workouts::-webkit-scrollbar {
@@ -69,13 +73,13 @@ a:visited {
 .workout {
   background-color: var(--color-dark--2);
   border-radius: 5px;
-  padding: 1.5rem 2.25rem;
-  margin-bottom: 1.75rem;
   cursor: pointer;
+  margin-bottom: 1rem;
+  height: 40%;
+  width: 100%;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0.75rem 1.5rem;
 }
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
@@ -85,29 +89,30 @@ a:visited {
 }
 
 .workout__title {
-  font-size: 1.7rem;
+  font-size: 1rem;
   font-weight: 600;
   grid-column: 1 / -1;
+  margin-left: 10px;
 }
 
 .workout__details {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
 }
 
 .workout__icon {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-right: 0.2rem;
-  height: 0.28rem;
 }
 
 .workout__value {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
 }
 
 .workout__unit {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   color: var(--color-light--1);
   text-transform: uppercase;
   font-weight: 800;
@@ -116,8 +121,8 @@ a:visited {
 .form {
   background-color: var(--color-dark--2);
   border-radius: 5px;
-  padding: 1.5rem 2.75rem;
-  margin-bottom: 1.75rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -146,20 +151,20 @@ a:visited {
 }
 
 .form__label {
-  flex: 0 0 50%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .form__input {
   width: 100%;
-  padding: 0.3rem 1.1rem;
+  padding: 0.3rem 0.8rem;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 1rem;
   border: none;
   border-radius: 3px;
   background-color: var(--color-light--3);
   transition: all 0.2s;
+  margin-left: 10px;
 }
 
 .form__input:focus {
@@ -168,12 +173,13 @@ a:visited {
 }
 
 .form__btn {
-  display: none;
+  border: none;
+  border-radius: 5px;
 }
 
 .copyright {
-  margin-top: auto;
-  font-size: 1.3rem;
+  margin-top: 10px;
+  font-size: 0.7rem;
   text-align: center;
   color: var(--color-light--1);
 }
@@ -217,4 +223,55 @@ a:visited {
 }
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: 5rem;
+  }
+  .workout {
+    padding-bottom: 1rem;
+    height: 50%;
+    padding-bottom: 1rem;
+    width: 80%;
+  }
+  .workout__title {
+    font-size: 2.2rem;
+  }
+  .workout__icon {
+    font-size: 3rem;
+  }
+  .workout__value {
+    font-size: 2rem;
+  }
+  .workout__unit {
+    font-size: 1.2rem;
+  }
+  .form {
+    height: 12rem;
+  }
+  .form__label {
+    font-size: 2rem;
+  }
+  .form__input {
+    font-size: 2rem;
+  }
+  .form__btn {
+    width: 10rem;
+  }
+  .copyright {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1366px) {
+  body {
+    flex-direction: row;
+  }
+  .sidebar {
+    width: 40%;
+    height: 100%;
+  }
+  .form {
+    height: 15rem;
+  }
 }

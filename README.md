@@ -22,7 +22,7 @@ https://szadziu.github.io/MaptyApp
 
 ## Illustrations
 
-incoming...
+![image](https://user-images.githubusercontent.com/73105872/152676728-e441488a-5dab-48cd-8eb1-270642d07cb4.png)
 
 ## Scope of functionalities
 
